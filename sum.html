@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    <title>Sum</title>
+</head>
+<script>
+    app = new Vue({
+        el:'#cong',
+        data:{
+            test: 'abc'
+        }
+    })
+</script>
+<body id="cong">
+    <input type="text" v-model="test">
+    {{test}}
+</body>
+</html>
