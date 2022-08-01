@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoApp</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="todo">
+        <div class="Input">
+            <table>
+                <tr>
+                    <td>
+                        <label for="id">ID</label>
+
+                    </td>
+                    <td>
+                        <input type="number" v-model="idInput">
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <label for="titleInp">Title</label>
+                    </td>
+                    <td>
+                        <input type="text" id="qqq" v-model="titleInp">
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="desInp">Description</label>
+                    </td>
+                    <td>
+                        <input type="text"  v-model="desInp">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="status">Status </label></td>
+                    <td>
+                        <select id="status" v-model="statusInp">
+                            <option value="todo">Todo</option>
+                            <option value="doing">Doing</option>
+                            <option value="finish">Finish</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="btn-event">
+                <button @click="additem" v-show="btnAdd"  @keyup.enter="additem">ADD</button>
+                <button @click="reset" v-show="btnAdd">RESET</button>
+    
+            </div>
+           
+           
+        </div>
+        <div class="view">
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>TITLE</th>
+                    <th>DESCRIPTION</th>
+                    <th>STATUS</th>
+                    <th>NOTE</th>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in todoapp">
+                        <td>{{item.id}}</td>
+                        <td>{{item.title}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.status}}</td>
+                        <td><span @click="deleteItem(index)" style="cursor:pointer ;">Delete</span> |
+                            <span @click="edit(index)" v-show="item.editItem" style="cursor:pointer ;">Edit</span>
+                            
+                            <span @click="save(index)" v-show="item.saveItem" style="cursor:pointer ;">Save</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br><br><br>
+
+    <script src="vuejs.js"></script>
+
+</body>
+
+</html>
